@@ -9,6 +9,13 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<groupId>com.fanhehe</groupId>
 	<artifactId>api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -58,6 +65,11 @@
                 </exclusion> -->
             </exclusions>
         </dependency>
+        <dependency>
+		    <groupId>com.github.fanhehe</groupId>
+		    <artifactId>dubbo-interface</artifactId>
+		    <version>bd339de925</version>
+		</dependency>
 	</dependencies>
 
 	<build>

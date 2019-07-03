@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.ArrayList;
 import com.fanhehe.api.dao.User;
-import com.fanhehe.api.service.UserService;
+import com.fanhehe.common.service.UserService;
 
 import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,12 +49,12 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
-	public User actionUser(@RequestParam(name = "id", defaultValue = "1") long id,
+	public com.fanhehe.common.model.User actionUser(@RequestParam(name = "id", defaultValue = "1") long id,
 						   @RequestParam(name = "name", defaultValue = "default-name") String name) {
 
 		if (userService.getUserInfoBy(id) == null) {
 			userService.createUser(id, name);
-			return new User();
+			return new com.fanhehe.common.model.User();
 		}
 
 		return userService.getUserInfoBy(id);

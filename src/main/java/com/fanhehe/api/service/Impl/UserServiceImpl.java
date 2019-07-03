@@ -1,20 +1,16 @@
 package com.fanhehe.api.service.Impl;
 
 import java.util.HashMap;
-import com.fanhehe.api.dao.User;
-import com.fanhehe.api.service.UserService;
-// import org.springframework.stereotype.Service;
+import javax.annotation.Resource;
+import com.fanhehe.common.model.User;
+import com.fanhehe.common.service.UserService;
 import com.alibaba.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.alibaba.dubbo.config.annotation.Reference;
 
-@Service
+
+@Service(version="1.0.0")
 public class UserServiceImpl implements UserService {
-
-	private User user;
-
-	UserServiceImpl(@Autowired User user) {
-		this.user = user;
-	}
 
 	private static HashMap<Long, User> map = new HashMap<>();
 
@@ -27,8 +23,10 @@ public class UserServiceImpl implements UserService {
 	public User createUser(long id, String name) {
 
 		if (map.get(id) != null) {
-			return user;
+			return map.get(id);
 		}
+
+		User user = new User();
 
 		user.setId(id);
 		user.setUserName(name);
