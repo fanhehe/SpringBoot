@@ -22,3 +22,9 @@ eureka:
     enable-self-preservation: false
     # 每隔10s扫描服务列表，该配置可以修改检查失效服务的时间，每隔10s检查失效服务，并移除列表 (Spring Cloud默认该配置是 60s)
     eviction-interval-timer-in-ms: 5000
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/user
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root

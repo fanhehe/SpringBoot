@@ -12,8 +12,15 @@ logging:
   level:
     com.cnooc.wordimg.LoggerTest2: debug
 spring:
+  jpa:
+    show-sql: true
   application:
-    name: user
+    name: home
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/user?useSSL=false&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
 eureka:
   #eureka实例定义
   instance:
@@ -37,4 +44,8 @@ eureka:
     enable-self-preservation: false
     # 每隔10s扫描服务列表，该配置可以修改检查失效服务的时间，每隔10s检查失效服务，并移除列表 (Spring Cloud默认该配置是 60s)
     eviction-interval-timer-in-ms: 5000
-
+feign:
+  hystrix:
+    enabled: true
+  okhttp:
+    enabled: true
