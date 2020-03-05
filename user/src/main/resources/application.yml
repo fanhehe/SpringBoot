@@ -39,6 +39,8 @@ spring:
     props:
       sql:
         show: true
+
+# https://www.cnblogs.com/qdhxhz/p/11651163.html
 eureka:
   #eureka实例定义
   instance:
