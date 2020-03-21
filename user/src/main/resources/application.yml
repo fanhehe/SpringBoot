@@ -1,18 +1,13 @@
 server:
-  #项目端口号
   port: 8886
   tomcat:
-    max-connections: 200
     max-threads: 300
     min-spare-threads: 0
+    max-connections: 200
     uri-encoding: UTF-8
-
 logging:
   pattern:
     console: "%d - %msg%n"
-  level:
-    com.cnooc.wordimg.LoggerTest2: debug
-
 spring:
   application:
     name: user
@@ -39,28 +34,80 @@ spring:
     props:
       sql:
         show: true
-
-# https://www.cnblogs.com/qdhxhz/p/11651163.html
+  cache:
+    type: redis
+    redis:
+      key-prefix: cache
+      cache-null-values: true
+  aop:
+    auto: true
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: true
+    discovery:
+      client:
+        health-indicator:
+          enabled: false
+  rabbitmq:
+    host: localhost
+    username: fanhehe
+    password: 13889441200
+    virtual-host: /fanhehe
+    port: 5672
+  redis:
+    cluster:
+      nodes: 127.0.0.1:6379,127.0.0.1:6380,127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384
+      max-redirects: 3
+    port: 6579
+    host: 127.0.0.1
+    database: 0
+    password:
 eureka:
-  #eureka实例定义
   instance:
-    #eureka实例主机名称
+    instance-id: user
     hostname: localhost
-    #表示eureka client发送心跳给server端的频率。如果在leaseExpirationDurationInSeconds后，server端没有收到client的心跳，
-    #则将摘除该instance。
-    #除此之外，如果该instance实现了HealthCheckCallback，并决定让自己unavailable的话，则该instance也不会接收到流量。
-    lease-renewal-interval-in-seconds: 5
-  #客户端进行Eureka注册的配置
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 3
+    lease-expiration-duration-in-seconds: 3
   client:
-    #关闭eureka的客户端行为:注册服务
-    registerWithEureka: true
-    #关闭eureka的客户端行为:订阅服务
     fetchRegistry: true
+    registerWithEureka: true
+    healthcheck:
+      enabled: false
     serviceUrl:
-      #eureka注册中心地址
       defaultZone: http://localhost:9999/eureka/
-  server:
-    # 关闭自我保护机制，防止失效的服务也被一直访问 (Spring Cloud默认该配置是 true)
-    enable-self-preservation: false
-    # 每隔10s扫描服务列表，该配置可以修改检查失效服务的时间，每隔10s检查失效服务，并移除列表 (Spring Cloud默认该配置是 60s)
-    eviction-interval-timer-in-ms: 5000
+
+feign:
+  hystrix:
+    enabled: true
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+
+ribbon:
+  eureka:
+    enabled: true
+  okhttp:
+    enabled: false
+  http:
+    client:
+      enabled: false
+user:
+  ribbon:
+    ConnectTimeout: 500 #请求连接超时时间
+    ReadTimeout: 1000 #请求处理的超时时间
+    OkToRetryOnAllOperations: true #对所有请求都进行重试
+    MaxAutoRetriesNextServer: 2 #切换实例的重试次数
+    MaxAutoRetries: 1 #对当前实例的重试次数
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #随机
+    # NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule #轮询
+    # NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RetryRule #重试
+    # NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #响应时间权重
+    # NFLoadBalancerRuleClassName: com.netflix.loadbalancer.BestAvailableRule #最空闲连接策略
