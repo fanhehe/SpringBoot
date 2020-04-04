@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Service("UserSystemFallback")
 public class UserServiceFallback implements UserService {
-    public String createUser(@RequestParam("phoneRegion")String phoneRegion, @RequestParam("phoneNumber")String phoneNumber) {
+    public String createUser(@RequestParam("phoneRegion") String phoneRegion, @RequestParam("phoneNumber") String phoneNumber) {
         return "create-user-fallback";
     }
 }

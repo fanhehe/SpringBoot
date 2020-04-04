@@ -66,11 +66,11 @@ class UserApplicationTests {
     @Test
     void service() {
         User user = new User();
-        user.setUserId((int)(Math.random() * 10000000000L));
+        user.setUserId((int) (Math.random() * 10000000000L));
         user.setUserNick("===========================");
         user.setUserAvatar("===========================");
-        user.setCreateAt((int)System.currentTimeMillis() / 1000);
-        user.setUpdateAt((int)System.currentTimeMillis() / 1000);
+        user.setCreateAt((int) System.currentTimeMillis() / 1000);
+        user.setUpdateAt((int) System.currentTimeMillis() / 1000);
 
         User storage = userRepository.save(user);
 

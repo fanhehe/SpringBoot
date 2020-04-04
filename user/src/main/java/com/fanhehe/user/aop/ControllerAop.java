@@ -18,7 +18,8 @@ public class ControllerAop {
     private static Logger logger = LoggerFactory.getLogger(ControllerAop.class);
 
     @Pointcut("within(com.fanhehe.user.controller.*)")
-    public void handleLog() {}
+    public void handleLog() {
+    }
 
     @Before("handleLog()")
     public void handlePrint() {

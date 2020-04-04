@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(value = "user", configuration = FeignConfig.class, fallback = UserServiceFallback.class)
 public interface UserService extends IService {
     @GetMapping("/user/create")
-    String createUser(@RequestParam("phoneRegion")String phoneRegion, @RequestParam("phoneNumber")String phoneNumber);
+    String createUser(@RequestParam("phoneRegion") String phoneRegion, @RequestParam("phoneNumber") String phoneNumber);
 }

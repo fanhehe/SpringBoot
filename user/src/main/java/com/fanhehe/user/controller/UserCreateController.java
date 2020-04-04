@@ -1,7 +1,10 @@
 package com.fanhehe.user.controller;
 
+import com.fanhehe.proto.user.UserOuterClass;
 import com.fanhehe.user.pojo.PO.User;
+
 import javax.validation.constraints.NotBlank;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -20,7 +23,7 @@ public class UserCreateController {
     private UserRepository userRepository;
 
     public UserCreateController() {
-        int  a= 1;
+        int a = 1;
         int b = 2;
     }
 
@@ -38,12 +41,18 @@ public class UserCreateController {
 
         Long result = redisTemplate.opsForSet().add("xxxxxxx", "xxxxxxx");
 
+        UserOuterClass.User xxx = UserOuterClass
+                .User.newBuilder()
+                .setUserId(1L)
+                .setUserToken("")
+                .build();
+
         User user = new User();
         user.setUserNick(phoneRegion);
         user.setUserAvatar(phoneNumber);
-        user.setUserId((long)(Math.random() * 10000000000000000L));
-        user.setCreateAt((int)(System.currentTimeMillis() / 1000));
-        user.setUpdateAt((int)(System.currentTimeMillis() / 1000));
+        user.setUserId((long) (Math.random() * 10000000000000000L));
+        user.setCreateAt((int) (System.currentTimeMillis() / 1000));
+        user.setUpdateAt((int) (System.currentTimeMillis() / 1000));
 
         userRepository.save(user);
 
@@ -55,7 +64,7 @@ public class UserCreateController {
     @Cacheable(key = "#userId")
     public User queryUser(Long userId) {
         User user = userRepository.findById(userId).orElse(null);
-        rabbitTemplate.convertAndSend("topic","query_user.3", user);
+        rabbitTemplate.convertAndSend("topic", "query_user.3", user);
         return user;
     }
 

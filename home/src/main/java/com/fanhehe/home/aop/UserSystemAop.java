@@ -18,7 +18,8 @@ public class UserSystemAop {
     }
 
     @Pointcut("within(com.fanhehe.home.system.*)")
-    public void handlePrint() {}
+    public void handlePrint() {
+    }
 
     @Before("handlePrint()")
     public void handleBeforePrint() {

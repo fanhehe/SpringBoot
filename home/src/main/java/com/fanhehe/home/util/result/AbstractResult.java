@@ -29,5 +29,7 @@ public abstract class AbstractResult<T> implements IResult<T>, IResultAware<T> {
         this.data = data;
     }
 
-    public boolean isFailure() { return !isSuccess(); }
+    public boolean isFailure() {
+        return !isSuccess();
+    }
 }

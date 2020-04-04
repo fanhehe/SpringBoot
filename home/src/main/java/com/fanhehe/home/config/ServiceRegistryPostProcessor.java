@@ -15,7 +15,7 @@ public class ServiceRegistryPostProcessor implements BeanPostProcessor {
         String a = bean.getClass().getSimpleName();
 
         if (bean instanceof IService) {
-            Registry.addService("user", beanName, (IService)bean);
+            Registry.addService("user", beanName, (IService) bean);
         }
 
         return bean;

@@ -7,7 +7,9 @@ public interface IResult<T> extends Serializable {
     int SUCCESS = 0;
 
     T getData();
+
     int getCode();
+
     String getMessage();
 
     default boolean isFailure() {

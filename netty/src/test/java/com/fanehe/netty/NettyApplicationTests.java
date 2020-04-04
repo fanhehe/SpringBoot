@@ -1,13 +1,13 @@
-package com.fanhehe.home;
+package com.fanehe.netty;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HomeApplicationTests {
+class NettyApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
