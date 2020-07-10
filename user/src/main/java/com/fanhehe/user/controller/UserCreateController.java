@@ -1,10 +1,8 @@
 package com.fanhehe.user.controller;
 
-import com.fanhehe.proto.user.UserOuterClass;
 import com.fanhehe.user.pojo.PO.User;
-
+import com.fanhehe.proto.user.UserOuterClass;
 import javax.validation.constraints.NotBlank;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;

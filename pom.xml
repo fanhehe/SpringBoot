@@ -31,8 +31,8 @@
         <module>user</module>
         <module>eureka</module>
         <module>payment</module>
-        <module>netty</module>
         <module>proto</module>
+        <module>netty</module>
     </modules>
 
     <dependencies>
