@@ -1,16 +1,15 @@
 package com.fanhehe.home;
 
-import javax.servlet.http.HttpServletRequest;
-
 import com.fanhehe.home.system.IServiceFacade;
 import com.fanhehe.home.util.result.IResult;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class Router {

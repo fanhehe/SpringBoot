@@ -1,7 +1,7 @@
 package com.fanhehe.home.system.user.service;
 
-import com.fanhehe.home.system.IService;
 import com.fanhehe.home.config.FeignConfig;
+import com.fanhehe.home.system.IService;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

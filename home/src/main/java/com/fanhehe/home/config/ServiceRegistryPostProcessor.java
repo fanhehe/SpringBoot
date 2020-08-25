@@ -3,8 +3,8 @@ package com.fanhehe.home.config;
 import com.fanhehe.home.Registry;
 import com.fanhehe.home.system.IService;
 import org.springframework.beans.BeansException;
-import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
 
 @Component
 public class ServiceRegistryPostProcessor implements BeanPostProcessor {

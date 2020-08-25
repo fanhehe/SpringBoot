@@ -1,10 +1,9 @@
 package com.fanhehe.home;
 
-import java.util.Map;
-import java.util.Optional;
-
 import com.fanhehe.home.system.IService;
 
+import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 public interface Registry {

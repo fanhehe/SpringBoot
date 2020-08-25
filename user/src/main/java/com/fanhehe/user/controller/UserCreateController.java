@@ -1,23 +1,28 @@
 package com.fanhehe.user.controller;
 
-import com.fanhehe.user.pojo.PO.User;
 import com.fanhehe.proto.user.UserOuterClass;
-import javax.validation.constraints.NotBlank;
-import org.springframework.stereotype.Controller;
+import com.fanhehe.user.pojo.PO.User;
+import com.fanhehe.user.pojo.respository.user.UserRepository;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import com.fanhehe.user.pojo.respository.UserRepository;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.validation.constraints.NotBlank;
+import java.util.Optional;
 
 @Controller
 @CacheConfig(cacheNames = "user")
 public class UserCreateController {
 
+    @Autowired
     private UserRepository userRepository;
 
     public UserCreateController() {
@@ -69,11 +74,16 @@ public class UserCreateController {
     @GetMapping("/user/query-nick")
     @ResponseBody
     public User queryUser(@NotBlank String userNick) {
-        return userRepository.findFirstByUserNickEquals(userNick).orElse(null);
+        
+        User user = new User();
+
+        ExampleMatcher matcher = ExampleMatcher.matchingAll()
+                .withIgnorePaths("version")
+                .withMatcher("id", mater -> mater.caseSensitive().regex().ignoreCase().exact());
+        
+        Optional<User> users = userRepository.findOne(Example.of(user,matcher));
+        
+        return users.orElse(userRepository.findFirstByUserNickEquals(userNick).orElse(null));
     }
 
-    @Autowired
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 }

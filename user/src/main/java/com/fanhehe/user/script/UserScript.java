@@ -1,10 +1,10 @@
 package com.fanhehe.user.script;
 
+import com.fanhehe.user.pojo.PO.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.fanhehe.user.pojo.PO.User;
-import org.springframework.stereotype.Component;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Component;
 
 @Component
 public class UserScript {
