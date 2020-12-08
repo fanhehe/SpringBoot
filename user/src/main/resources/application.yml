@@ -13,9 +13,11 @@ spring:
     name: user
   jpa:
     show-sql: true
+  profiles:
+    active: dev
   shardingsphere:
     datasource:
-      names: master,slave0
+      names: master, slave0
       master:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
@@ -54,37 +56,12 @@ spring:
       cache-null-values: true
   aop:
     auto: true
-  rabbitmq:
-    host: localhost
-    username: fanhehe
-    password: 13889441200
-    virtual-host: /fanhehe
-    port: 5672
-  redis:
-    cluster:
-      nodes: 127.0.0.1:6389,127.0.0.1:6390,127.0.0.1:6391,127.0.0.1:6392,127.0.0.1:6393,127.0.0.1:6394
-      max-redirects: 3
-    port: 6389
-    host: 127.0.0.1
-    database: 0
-    password:
-feign:
-  hystrix:
-    enabled: true
-  okhttp:
-    enabled: true
-  httpclient:
-    enabled: false
-  compression:
-    request:
-      enabled: true
-    response:
-      enabled: true
-user:
-  ribbon:
-    ConnectTimeout: 500 #请求连接超时时间
-    ReadTimeout: 1000 #请求处理的超时时间
-    OkToRetryOnAllOperations: true #对所有请求都进行重试
-    MaxAutoRetriesNextServer: 2 #切换实例的重试次数
-    MaxAutoRetries: 1 #对当前实例的重试次数
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #随机
+#  redis:
+##    cluster:
+##      #nodes: 127.0.0.1:6389,127.0.0.1:6390,127.0.0.1:6391,127.0.0.1:6392,127.0.0.1:6393,127.0.0.1:6394
+##      max-redirects: 3
+##      nodes: 127.0.0.1:6379
+#    port: 6379
+#    host: 127.0.0.1
+#    database: 0
+#    password:

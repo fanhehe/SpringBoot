@@ -46,8 +46,6 @@ class UserApplicationTests {
     void contextLoads() {
 
         try {
-            logger.info("============");
-
             mockMvc.perform(
                     MockMvcRequestBuilders
                             .get("/user/query")
@@ -58,8 +56,6 @@ class UserApplicationTests {
                     .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                     .andExpect(MockMvcResultMatchers.jsonPath("$.userId").value("3746846603775757"))
                     .andReturn();
-
-            logger.info("================");
         } catch (Exception e) {
             logger.error("", e);
         }
@@ -69,8 +65,6 @@ class UserApplicationTests {
     void service() {
         User user = new User();
         user.setUserId((int) (Math.random() * 10000000000L));
-        user.setUserNick("===========================");
-        user.setUserAvatar("===========================");
         user.setCreateAt((int) System.currentTimeMillis() / 1000);
         user.setUpdateAt((int) System.currentTimeMillis() / 1000);
 

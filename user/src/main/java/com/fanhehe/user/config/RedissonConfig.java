@@ -7,14 +7,17 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+/**
+ * @author fanhehe
+ */
+//@Configuration
 public class RedissonConfig {
     @Value("${spring.redis.password}")
     private String password;
     @Value("${spring.redis.cluster.nodes}")
     private String clusters;
 
-    @Bean
+//    @Bean
     public RedissonClient getRedisson() {
         String[] nodes = clusters.split(",");
         for (int i = 0; i < nodes.length; i++) {
@@ -23,8 +26,8 @@ public class RedissonConfig {
         Config config = new Config();
 
         config
-                .useClusterServers() //这是用的集群server
-                .setScanInterval(2000) //设置集群状态扫描时间
+                .useClusterServers()
+                .setScanInterval(2000)
                 .addNodeAddress(nodes);
 //                .setPassword(password)
         return Redisson.create(config);

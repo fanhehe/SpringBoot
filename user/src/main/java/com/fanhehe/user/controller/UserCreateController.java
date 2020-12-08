@@ -1,6 +1,6 @@
 package com.fanhehe.user.controller;
 
-import com.fanhehe.proto.user.UserOuterClass;
+//import com.fanhehe.proto.user.UserOuterClass;
 import com.fanhehe.user.pojo.PO.User;
 import com.fanhehe.user.pojo.respository.user.UserRepository;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.validation.constraints.NotBlank;
 import java.util.Optional;
 
+/**
+ * @author fanhehe
+ */
 @Controller
 @CacheConfig(cacheNames = "user")
 public class UserCreateController {
@@ -44,11 +47,11 @@ public class UserCreateController {
 
         Long result = redisTemplate.opsForSet().add("xxxxxxx", "xxxxxxx");
 
-        UserOuterClass.User xxx = UserOuterClass
-                .User.newBuilder()
-                .setUserId(1L)
-                .setUserToken("")
-                .build();
+//        UserOuterClass.User xxx = UserOuterClass
+//                .User.newBuilder()
+//                .setUserId(1L)
+//                .setUserToken("")
+//                .build();
 
         User user = new User();
         user.setUserNick(phoneRegion);
