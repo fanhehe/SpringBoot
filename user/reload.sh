@@ -29,10 +29,10 @@ PID=
 
 get_project_pid PID
 
-#if [ ${PID} ]; then
-#    echo 'Stop Process...'
-#    kill -15 $PID
-#fi
+if [ ${PID} ]; then
+    echo 'Stop Process...'
+    kill -15 $PID
+fi
 
 # 关闭程序,带重试30次的
 for((i=0; i<$MAX_TIMEOUT; i++))
@@ -68,7 +68,7 @@ rm -f PID
 mvn clean && mvn package -Dmaven.test.skip=true
 
 # 运行程序
-nohup java -jar $JAVA_OPTS target/${PROJECT_NAME} 2>&1 1>$LOGGER &
+nohup java -jar $JAVA_OPTS target/${PROJECT_NAME} 2>&1 1>>$LOGGER &
 
 # 将pid写进文件中
 #echo $! > PID

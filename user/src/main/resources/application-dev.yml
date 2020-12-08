@@ -1,6 +1,6 @@
 spring:
   rabbitmq:
-    host: localhost
+    host: 127.0.0.1
     username: fanhehe
     password: 13889441200
     virtual-host: /fanhehe

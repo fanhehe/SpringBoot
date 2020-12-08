@@ -26,11 +26,6 @@ public class KafkaController {
     @GetMapping("/kafkas")
     public String kafkaHelloWorld() {
         int i = 0;
-
-        while (i++ < 100000000000000L) {
-
-        }
-
         kafkaTemplate.send("kafka", "xxxxxxxxx");
         return "SUCCESS";
     }
@@ -39,6 +34,7 @@ public class KafkaController {
     public void queueCallbackS1(ConsumerRecord record, Acknowledgment acknowledgment) {
         record.value();
         acknowledgment.acknowledge();
+
         logger.info("s1 =======================> {}", record.value());
     }
 

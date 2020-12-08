@@ -17,7 +17,7 @@ spring:
     active: dev
   shardingsphere:
     datasource:
-      names: master, slave0
+      names: master, slave0, doll
       master:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
@@ -30,6 +30,12 @@ spring:
         url: jdbc:mysql://59.110.172.84:3306/user_core?useSSL=false&useUnicode=true&characterEncoding=utf8
         username: opss
         password: opss
+      doll:
+          type: com.alibaba.druid.pool.DruidDataSource
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://zuibangaidev.mysql.rds.aliyuncs.com:3306/doll?useSSL=false&useUnicode=true&characterEncoding=utf8
+          username: zuibangai
+          password: Zuibon888888
     sharding:
       tables:
         user:
@@ -65,3 +71,13 @@ spring:
 #    host: 127.0.0.1
 #    database: 0
 #    password:
+management:
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'

@@ -14,6 +14,8 @@ import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.boot.web.embedded.tomcat.TomcatConnectorCustomizer;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author fanhehe
  * @version 0.0.1
@@ -45,7 +47,8 @@ public class ShutdownConfig {
         }
 
         @Override
-        public void onApplicationEvent(ContextClosedEvent contextClosedEvent) {
+        public void onApplicationEvent(@NotNull ContextClosedEvent event) {
+            logger.info("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
             this.connector.pause();
             Executor executor = this.connector.getProtocolHandler().getExecutor();
             if (executor instanceof ThreadPoolExecutor) {
