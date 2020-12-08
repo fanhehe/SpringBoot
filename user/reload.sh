@@ -1,6 +1,6 @@
 #!/bin/sh
 # logger信息
-LOGGER=/dev/null
+LOGGER=/Users/fanhehe/workspace/github/SpringBoot/user/log
 # 项目名称
 PROJECT_NAME=user.jar
 # java 配置
