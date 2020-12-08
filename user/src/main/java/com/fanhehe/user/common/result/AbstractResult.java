@@ -6,6 +6,7 @@ package com.fanhehe.user.common.result;
  * @date 2020/12/8 15:27
  */
 public abstract class AbstractResult<T> implements IResult<T> {
+
     private T data;
     private int code;
     private String message;
@@ -60,4 +61,33 @@ public abstract class AbstractResult<T> implements IResult<T> {
         return result;
     }
 
+    /**
+     * 失败的默认的IResult
+     */
+    protected static final IResult<Object> FAILURE = makeResult(new IResultEnum() {
+        @Override
+        public int getCode() {
+            return 500;
+        }
+
+        @Override
+        public String getMessage() {
+            return "网络异常";
+        }
+    }, null);
+
+    /**
+     * 成功默认的IResult
+     */
+    protected static final IResult<Object> SUCCESS = makeResult(new IResultEnum() {
+        @Override
+        public int getCode() {
+            return 0;
+        }
+
+        @Override
+        public String getMessage() {
+            return "";
+        }
+    }, null);
 }

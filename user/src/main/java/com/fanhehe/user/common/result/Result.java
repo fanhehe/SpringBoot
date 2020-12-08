@@ -56,29 +56,4 @@ public final class Result<T> extends AbstractResult<T> {
     public static <T> IResult<T> failure(IResultEnum resultEnum, T data) {
         return makeResult(resultEnum, data);
     }
-
-
-    private static final IResult<Object> FAILURE = makeResult(new IResultEnum() {
-        @Override
-        public int getCode() {
-            return 500;
-        }
-
-        @Override
-        public String getMessage() {
-            return "网络异常";
-        }
-    }, null);
-
-    private static final IResult<Object> SUCCESS = makeResult(new IResultEnum() {
-        @Override
-        public int getCode() {
-            return 0;
-        }
-
-        @Override
-        public String getMessage() {
-            return "";
-        }
-    }, null);
 }

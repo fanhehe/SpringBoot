@@ -89,7 +89,7 @@ public class WaveServiceImpl implements WaveService {
                     );
 
             result.setNextTime(tomorrow.getTime() - result.getServerTime());
-            
+
             return Result.failure(WaveResultEnum.EMPTY, result);
         }
 
@@ -141,7 +141,6 @@ public class WaveServiceImpl implements WaveService {
             userRecord.setStatus(WaveStatus.FINISH_OPEN.getType());
         }
 
-
         waveUserRecordRepository.save(userRecord);
 
         waveConfigRepository.incrementElectricWaveConfigTodayTimes(config);
@@ -156,8 +155,7 @@ public class WaveServiceImpl implements WaveService {
 
         long now = System.currentTimeMillis() - today;
 
-
-        for (Long item : WaveConfig.WAVE_SPECIAL_TIME) {
+        for (Long item: WaveConfig.WAVE_SPECIAL_TIME) {
 
             // 现在时间减去分段时间
             long diff = now - item;
