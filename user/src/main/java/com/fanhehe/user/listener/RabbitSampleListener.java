@@ -1,8 +1,6 @@
 package com.fanhehe.user.listener;
 
 import java.util.Arrays;
-
-import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.slf4j.Logger;
 import lombok.SneakyThrows;
 import org.slf4j.LoggerFactory;
@@ -17,6 +15,7 @@ import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
