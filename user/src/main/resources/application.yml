@@ -14,7 +14,8 @@ spring:
   jpa:
     show-sql: true
   profiles:
-    active: dev
+    active: local
+    include: dev
   shardingsphere:
     datasource:
       names: master, slave0, doll
@@ -30,7 +31,12 @@ spring:
         url: jdbc:mysql://59.110.172.84:3306/user_core?useSSL=false&useUnicode=true&characterEncoding=utf8
         username: opss
         password: opss
-
+      doll:
+          type: com.alibaba.druid.pool.DruidDataSource
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://127.0.0.1:3306/doll?useSSL=false&useUnicode=true&characterEncoding=utf8
+          username: ops
+          password: ops
     sharding:
       tables:
         user:
