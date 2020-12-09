@@ -123,7 +123,6 @@ public class RabbitSampleListener {
             concurrency = "4",
             containerFactory = "rabbitListenerContainerFactory"
     )
-
     @SneakyThrows
     public void handleMessage(Message message, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG)long deliveryTag, @Payload String payload) {
         try {
