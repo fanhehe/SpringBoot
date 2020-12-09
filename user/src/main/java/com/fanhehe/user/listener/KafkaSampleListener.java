@@ -1,4 +1,4 @@
-package com.fanhehe.user.controller;
+package com.fanhehe.user.listener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,16 +16,15 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @date 2020/11/22 08:42
  */
 @RestController
-public class KafkaController {
+public class KafkaSampleListener {
 
     @Autowired
     private KafkaTemplate kafkaTemplate;
 
-    private static final Logger logger = LoggerFactory.getLogger(KafkaController.class);
+    private static final Logger logger = LoggerFactory.getLogger(KafkaSampleListener.class);
 
     @GetMapping("/kafkas")
     public String kafkaHelloWorld() {
-        int i = 0;
         kafkaTemplate.send("kafka", "xxxxxxxxx");
         return "SUCCESS";
     }

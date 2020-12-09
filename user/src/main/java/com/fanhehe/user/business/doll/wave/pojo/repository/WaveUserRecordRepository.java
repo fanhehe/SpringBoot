@@ -21,7 +21,7 @@ public interface WaveUserRecordRepository extends JpaRepository<ElectricWaveUser
      * @param user 用户
      * @return 获取用户最新的一条电波
      */
-    @Query("from ElectricWaveUserRecord where userId=#{user.userId} order by id desc nulls first")
+    @Query("from ElectricWaveUserRecord where userId=:#{#user.userId} order by id desc nulls first")
     ElectricWaveUserRecord getElectricWaveCycleUserRecord(@Param("user") IUser user);
 
     /**
@@ -29,6 +29,6 @@ public interface WaveUserRecordRepository extends JpaRepository<ElectricWaveUser
      * @param user 用户
      * @return 结果
      */
-    @Query("select count(*) from ElectricWaveUserRecord where userId=#{user.userId} and gmtDate=:gmtDate")
-    int getElectricWaveCycleTodayTimes(@Param("user") IUser user, @Param("gmtCreate") Date gmtDate);
+    @Query("select count(*) from ElectricWaveUserRecord where userId=:#{#user.userId} and gmtDate=:gmtDate")
+    int getElectricWaveCycleTodayTimes(@Param("user") IUser user, @Param("gmtDate") Date gmtDate);
 }

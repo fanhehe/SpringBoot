@@ -20,7 +20,7 @@ public class ControllerAop {
 
     private static Logger logger = LoggerFactory.getLogger(ControllerAop.class);
 
-    @Pointcut("within(com.fanhehe.user.controller.*)")
+    @Pointcut("within(com.fanhehe.user.listener.*)")
     public void handleLog() {
     }
 

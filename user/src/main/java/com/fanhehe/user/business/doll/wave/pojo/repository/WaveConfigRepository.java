@@ -21,7 +21,7 @@ public interface WaveConfigRepository extends JpaRepository<ElectricWaveConfig, 
      * @param user 用户信息
      * @return 结果
      */
-    @Query(value = "SELECT p FROM ElectricWaveConfig p")
+    @Query(value = "FROM ElectricWaveConfig")
     List<ElectricWaveConfig> getElectricWaveConfig(IUser user);
 
     /**
@@ -35,8 +35,8 @@ public interface WaveConfigRepository extends JpaRepository<ElectricWaveConfig, 
      * 增加电波每天已开出次数
      * @param config 配置
      */
-    @Transactional(rollbackFor = Exception.class)
     @Modifying(clearAutomatically = true)
-    @Query(value = "update ElectricWaveConfig set todayTimesCount = todayTimesCount + 1 where waveCode = #{config.waveCode}")
+    @Transactional(rollbackFor = Exception.class)
+    @Query(value = "update ElectricWaveConfig set todayTimesCount = todayTimesCount + 1 where waveCode = :#{#config.waveCode}")
     void incrementElectricWaveConfigTodayTimes(@Param("config") ElectricWaveConfig config);
 }

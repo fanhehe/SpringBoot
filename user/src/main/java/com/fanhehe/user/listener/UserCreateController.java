@@ -1,4 +1,4 @@
-package com.fanhehe.user.controller;
+package com.fanhehe.user.listener;
 
 //import com.fanhehe.proto.user.UserOuterClass;
 import com.fanhehe.user.pojo.PO.User;
