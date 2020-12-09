@@ -31,4 +31,6 @@ build/
 .vscode/
 .mvn
 log
-*local.yml
+
+*-local.yml
+application-local.yml
