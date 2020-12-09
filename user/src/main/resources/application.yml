@@ -30,12 +30,7 @@ spring:
         url: jdbc:mysql://59.110.172.84:3306/user_core?useSSL=false&useUnicode=true&characterEncoding=utf8
         username: opss
         password: opss
-      doll:
-          type: com.alibaba.druid.pool.DruidDataSource
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://zuibangaidev.mysql.rds.aliyuncs.com:3306/doll?useSSL=false&useUnicode=true&characterEncoding=utf8
-          username: zuibangai
-          password: Zuibon888888
+
     sharding:
       tables:
         user:
