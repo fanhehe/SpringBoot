@@ -33,3 +33,4 @@ build/
 log
 
 **/*-local.yml
+/user/src/main/resources/application-local.yml
