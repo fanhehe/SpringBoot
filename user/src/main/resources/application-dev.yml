@@ -41,3 +41,52 @@ spring:
       # listener负责ack，每调用一次，就立即commit
       ack-mode: manual_immediate
       missing-topics-fatal: false
+  shardingsphere:
+    datasource:
+      names: master, slave0, doll
+      master:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://182.92.190.168:3306/user_core?useSSL=false&useUnicode=true&characterEncoding=utf8
+        username: ops
+        password: ops
+      slave0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://59.110.172.84:3306/user_core?useSSL=false&useUnicode=true&characterEncoding=utf8
+        username: opss
+        password: opss
+      doll:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/doll?useSSL=false&useUnicode=true&characterEncoding=utf8
+        username: ops
+        password: ops
+    sharding:
+      tables:
+        user:
+          key-generator:
+            type: SNOWFLAKE
+            column: user_id
+          actual-data-nodes: ds0.user_$->{0..9}
+          table-strategy:
+            inline:
+              sharding-column: user_id
+              algorithm-expression: user_$->{user_id % 10}
+      binding-tables: user
+      master-slave-rules:
+        ds0:
+          master-data-source-name: master
+          slave-data-source-names: slave0
+    props:
+      sql:
+        show: true
+#  redis:
+#    cluster:
+#      #nodes: 127.0.0.1:6389,127.0.0.1:6390,127.0.0.1:6391,127.0.0.1:6392,127.0.0.1:6393,127.0.0.1:6394
+#      max-redirects: 3
+#      nodes: 127.0.0.1:6379
+#    port: 6379
+#    host: 127.0.0.1
+#    database: 0
+#    password:
