@@ -101,10 +101,10 @@ spring:
   datasource:
     dynamic:
       datasource:
-        master:
+        neckpets:
           type: com.alibaba.druid.pool.DruidDataSource
           driver-class-name: com.mysql.cj.jdbc.Driver
           url: jdbc:mysql://127.0.0.1:3306/doll?useSSL=false&useUnicode=true&characterEncoding=utf8
           username: ops
           password: ops
-      primary: master
+      primary: neckpets
