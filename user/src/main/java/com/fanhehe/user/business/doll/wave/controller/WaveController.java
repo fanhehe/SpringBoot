@@ -61,8 +61,8 @@ public class WaveController {
     @Transactional(rollbackFor = Exception.class)
     public IResult<WaveResult> test2(WaveCond cond) {
         waveTransactionService.insert(42L);
+//        waveTransactionService.throwException();
         waveTransactionService.insert(43L);
-        waveTransactionService.throwException();
         return waveService.makeElectricWaveCycle(() -> null, cond);
     }
 }
