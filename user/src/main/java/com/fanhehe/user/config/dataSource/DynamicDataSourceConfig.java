@@ -28,8 +28,8 @@ public class DynamicDataSourceConfig {
     @Autowired
     private DynamicDataSourceProperties properties;
 
-    @Autowired
     @Lazy
+    @Autowired
     private AbstractDataSourceAdapter shardingDataSource;
 
     private static final String SHARDING_DATA_SOURCE_NAME = "gits_sharding";
