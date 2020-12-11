@@ -1,6 +1,5 @@
-package com.fanhehe.user.business.test.mq;
+package com.fanhehe.user.business.user.controller;
 
-//import com.fanhehe.proto.user.UserOuterClass;
 import com.fanhehe.user.business.user.pojo.model.User;
 import com.fanhehe.user.business.user.pojo.respository.user.UserRepository;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -88,5 +87,4 @@ public class UserCreateController {
         
         return users.orElse(userRepository.findFirstByUserNickEquals(userNick).orElse(null));
     }
-
 }
