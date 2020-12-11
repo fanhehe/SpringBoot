@@ -1,8 +1,8 @@
-package com.fanhehe.user.listener;
+package com.fanhehe.user.business.test.mq;
 
 //import com.fanhehe.proto.user.UserOuterClass;
-import com.fanhehe.user.pojo.PO.User;
-import com.fanhehe.user.pojo.respository.user.UserRepository;
+import com.fanhehe.user.business.user.pojo.model.User;
+import com.fanhehe.user.business.user.pojo.respository.user.UserRepository;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;

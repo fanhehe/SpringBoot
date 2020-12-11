@@ -1,4 +1,4 @@
-package com.fanhehe.user.listener;
+package com.fanhehe.user.business.test.mq;
 
 import java.util.Arrays;
 import org.slf4j.Logger;

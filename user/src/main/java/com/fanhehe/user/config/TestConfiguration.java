@@ -1,6 +1,6 @@
 package com.fanhehe.user.config;
 
-import com.fanhehe.user.pojo.PO.User;
+import com.fanhehe.user.business.user.pojo.model.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

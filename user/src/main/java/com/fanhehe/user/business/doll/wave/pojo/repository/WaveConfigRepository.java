@@ -2,6 +2,7 @@ package com.fanhehe.user.business.doll.wave.pojo.repository;
 
 import java.util.List;
 import com.fanhehe.user.common.user.IUser;
+import org.springframework.boot.autoconfigure.batch.BatchDataSource;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.fanhehe.user.business.doll.wave.pojo.ElectricWaveConfig;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -9,6 +10,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.sql.DataSourceDefinition;
 
 /**
  * @author fanhehe

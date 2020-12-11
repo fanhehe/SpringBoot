@@ -1,8 +1,8 @@
 package com.fanhehe.user;
 
 
-import com.fanhehe.user.pojo.PO.User;
-import com.fanhehe.user.pojo.respository.user.UserRepository;
+import com.fanhehe.user.business.user.pojo.model.User;
+import com.fanhehe.user.business.user.pojo.respository.user.UserRepository;
 import lombok.SneakyThrows;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;

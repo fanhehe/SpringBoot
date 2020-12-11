@@ -1,4 +1,4 @@
-package com.fanhehe.user.pojo.respository;
+package com.fanhehe.user.business.user.pojo.respository;
 
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.jpa.repository.JpaRepository;

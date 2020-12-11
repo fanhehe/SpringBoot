@@ -1,9 +1,12 @@
-package com.fanhehe.user.pojo.PO;
+package com.fanhehe.user.business.user.pojo.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * @author fanhehe
+ */
 @Entity
 public class User implements Serializable {
     private long userId;

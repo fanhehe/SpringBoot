@@ -14,13 +14,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ControllerAop {
 
-    ControllerAop() {
-        logger.info("xxxxx");
-    }
+    private static final Logger logger = LoggerFactory.getLogger(ControllerAop.class);
 
-    private static Logger logger = LoggerFactory.getLogger(ControllerAop.class);
-
-    @Pointcut("within(com.fanhehe.user.listener.*)")
+    @Pointcut("within(com.fanhehe.user.business.listener.*)")
     public void handleLog() {
     }
 
