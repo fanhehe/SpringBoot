@@ -12,8 +12,8 @@ public class User implements Serializable {
     private long userId;
     private String userNick;
     private String userAvatar;
-    private int createAt;
-    private int updateAt;
+    private long createAt;
+    private long updateAt;
 
     @Id
     @Column(name = "user_id", nullable = false)
@@ -47,21 +47,21 @@ public class User implements Serializable {
 
     @Basic
     @Column(name = "create_at", nullable = false)
-    public int getCreateAt() {
+    public long getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(int createAt) {
+    public void setCreateAt(long createAt) {
         this.createAt = createAt;
     }
 
     @Basic
     @Column(name = "update_at", nullable = false)
-    public int getUpdateAt() {
+    public long getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(int updateAt) {
+    public void setUpdateAt(long updateAt) {
         this.updateAt = updateAt;
     }
 
