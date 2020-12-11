@@ -1,5 +1,6 @@
 package com.fanhehe.user.business.user.controller;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.fanhehe.user.business.user.pojo.model.User;
 import com.fanhehe.user.business.user.pojo.respository.user.UserRepository;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -21,6 +22,7 @@ import java.util.Optional;
  * @author fanhehe
  */
 @Controller
+@DS("gits_sharding")
 @CacheConfig(cacheNames = "user")
 public class UserCreateController {
 

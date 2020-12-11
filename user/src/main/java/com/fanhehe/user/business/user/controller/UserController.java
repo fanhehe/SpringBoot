@@ -1,5 +1,6 @@
 package com.fanhehe.user.business.user.controller;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.fanhehe.user.business.user.pojo.constant.BindingType;
 import com.fanhehe.user.business.user.pojo.model.User;
 import com.fanhehe.user.business.user.pojo.model.UserBinding;
@@ -22,6 +23,7 @@ import java.util.Optional;
  * @date 2020/12/11 11:51
  */
 @RestController
+@DS("gits_sharding")
 public class UserController {
 
     @Autowired
