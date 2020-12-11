@@ -6,6 +6,7 @@ import com.fanhehe.user.business.user.pojo.model.User;
 import com.fanhehe.user.business.user.pojo.model.UserBinding;
 import com.fanhehe.user.business.user.pojo.respository.user.UserBindingRepository;
 import com.fanhehe.user.business.user.pojo.respository.user.UserRepository;
+import com.fanhehe.user.config.dataSource.DataSourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -23,7 +24,7 @@ import java.util.Optional;
  * @date 2020/12/11 11:51
  */
 @RestController
-@DS("gits_sharding")
+@DS(DataSourceType.USER_CORE)
 public class UserController {
 
     @Autowired

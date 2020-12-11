@@ -3,6 +3,7 @@ package com.fanhehe.user.business.user.controller;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.fanhehe.user.business.user.pojo.model.User;
 import com.fanhehe.user.business.user.pojo.respository.user.UserRepository;
+import com.fanhehe.user.config.dataSource.DataSourceType;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -22,7 +23,7 @@ import java.util.Optional;
  * @author fanhehe
  */
 @Controller
-@DS("gits_sharding")
+@DS(DataSourceType.USER_CORE)
 @CacheConfig(cacheNames = "user")
 public class UserCreateController {
 

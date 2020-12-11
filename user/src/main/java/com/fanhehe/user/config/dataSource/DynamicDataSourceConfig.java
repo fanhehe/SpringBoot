@@ -32,8 +32,6 @@ public class DynamicDataSourceConfig {
     @Autowired
     private AbstractDataSourceAdapter shardingDataSource;
 
-    private static final String SHARDING_DATA_SOURCE_NAME = "gits_sharding";
-
     @Bean
     public DynamicDataSourceProvider dynamicDataSourceProvider() {
         Map<String, DataSourceProperty> datasourceMap = properties.getDatasource();
@@ -41,7 +39,7 @@ public class DynamicDataSourceConfig {
             @Override
             public Map<String, DataSource> loadDataSources() {
                 Map<String, DataSource> dataSourceMap = createDataSourceMap(datasourceMap);
-                dataSourceMap.put(SHARDING_DATA_SOURCE_NAME, shardingDataSource);
+                dataSourceMap.put(DataSourceType.USER_CORE, shardingDataSource);
                 return dataSourceMap;
             }
         };
