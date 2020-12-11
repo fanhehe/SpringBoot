@@ -28,6 +28,7 @@ public interface WaveUserRecordRepository extends CommonRepository<ElectricWaveU
     /**
      * 获取用户今天电波的总次数
      * @param user 用户
+     * @param gmtDate gmtDate
      * @return 结果
      */
     @Query("select count(*) from ElectricWaveUserRecord where userId=:#{#user.userId} and gmtDate=:gmtDate")
