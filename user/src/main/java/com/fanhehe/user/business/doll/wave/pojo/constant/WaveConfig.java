@@ -27,7 +27,7 @@ public final class WaveConfig {
     /**
      * 随机电波，出现电波的概率为1.5%
      */
-    public static final double WAVE_CYCLE_RATIO = 3;
+    public static final double WAVE_CYCLE_RATIO = 50;
 
     /**
      * 电波间隔为10s

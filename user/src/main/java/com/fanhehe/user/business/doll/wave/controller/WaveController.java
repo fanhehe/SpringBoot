@@ -3,10 +3,12 @@ package com.fanhehe.user.business.doll.wave.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
+import com.fanhehe.user.business.user.pojo.model.User;
 import com.fanhehe.user.common.result.IResult;
 import com.fanhehe.user.business.doll.wave.pojo.cond.WaveCond;
 import com.fanhehe.user.business.doll.wave.pojo.result.WaveResult;
 import com.fanhehe.user.business.doll.wave.service.WaveService;
+import com.fanhehe.user.common.user.IUser;
 import org.apache.shardingsphere.api.hint.HintManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,7 +40,7 @@ public class WaveController {
      */
     @RequestMapping("makeElectricWaveCycle")
     public IResult<WaveResult> makeElectricWaveCycle(WaveCond cond) {
-        return waveService.makeElectricWaveCycle(() -> null, cond);
+        return waveService.makeElectricWaveCycle(() -> 1L, cond);
     }
 
     @RequestMapping("test")
