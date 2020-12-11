@@ -3,14 +3,14 @@ package com.fanhehe.user.business.doll.wave.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
-import com.fanhehe.user.business.user.pojo.model.User;
+import com.fanhehe.user.business.doll.wave.service.WaveTransactionServiceImpl;
 import com.fanhehe.user.common.result.IResult;
 import com.fanhehe.user.business.doll.wave.pojo.cond.WaveCond;
 import com.fanhehe.user.business.doll.wave.pojo.result.WaveResult;
 import com.fanhehe.user.business.doll.wave.service.WaveService;
-import com.fanhehe.user.common.user.IUser;
 import org.apache.shardingsphere.api.hint.HintManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,6 +34,9 @@ public class WaveController {
     @Autowired
     private List<DataSource> dataSourceList;
 
+    @Autowired
+    private WaveTransactionServiceImpl waveTransactionService;
+
     /**
      * 周期成成电波接口
      * @return 周期成成电波接口
@@ -51,6 +54,15 @@ public class WaveController {
         dataSourceList.size();
         HintManager.getInstance().setMasterRouteOnly();
 
+        return waveService.makeElectricWaveCycle(() -> null, cond);
+    }
+
+    @RequestMapping("test2")
+    @Transactional(rollbackFor = Exception.class)
+    public IResult<WaveResult> test2(WaveCond cond) {
+        waveTransactionService.insert(42L);
+        waveTransactionService.insert(43L);
+        waveTransactionService.throwException();
         return waveService.makeElectricWaveCycle(() -> null, cond);
     }
 }
