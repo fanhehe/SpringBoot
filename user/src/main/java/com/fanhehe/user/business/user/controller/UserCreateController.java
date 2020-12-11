@@ -23,17 +23,10 @@ import java.util.Optional;
  * @author fanhehe
  */
 @Controller
-@DS(DataSourceType.USER_CORE)
 @CacheConfig(cacheNames = "user")
 public class UserCreateController {
-
     @Autowired
     private UserRepository userRepository;
-
-    public UserCreateController() {
-        int a = 1;
-        int b = 2;
-    }
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
@@ -59,8 +52,8 @@ public class UserCreateController {
         user.setUserNick(phoneRegion);
         user.setUserAvatar(phoneNumber);
         user.setUserId((long) (Math.random() * 10000000000000000L));
-        user.setCreateAt((int) (System.currentTimeMillis() / 1000));
-        user.setUpdateAt((int) (System.currentTimeMillis() / 1000));
+        user.setCreateAt(System.currentTimeMillis());
+        user.setUpdateAt(System.currentTimeMillis() / 1000);
 
         userRepository.save(user);
 

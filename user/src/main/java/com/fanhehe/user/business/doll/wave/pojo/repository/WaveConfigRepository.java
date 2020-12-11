@@ -1,6 +1,8 @@
 package com.fanhehe.user.business.doll.wave.pojo.repository;
 
 import java.util.List;
+
+import com.fanhehe.user.business.user.pojo.respository.CommonRepository;
 import com.fanhehe.user.common.user.IUser;
 import org.springframework.boot.autoconfigure.batch.BatchDataSource;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,7 +20,7 @@ import javax.annotation.sql.DataSourceDefinition;
  * @version 0.0.1
  * @date 2020/12/8 14:48
  */
-public interface WaveConfigRepository extends JpaRepository<ElectricWaveConfig, Long>, JpaSpecificationExecutor<ElectricWaveConfig> {
+public interface WaveConfigRepository extends CommonRepository<ElectricWaveConfig> {
     /**
      * 获取符合用户条件的电波配置表
      * @param user 用户信息

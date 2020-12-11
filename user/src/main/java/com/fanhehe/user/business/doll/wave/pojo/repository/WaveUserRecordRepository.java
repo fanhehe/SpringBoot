@@ -1,6 +1,7 @@
 package com.fanhehe.user.business.doll.wave.pojo.repository;
 
 import com.fanhehe.user.business.doll.wave.pojo.ElectricWaveUserRecord;
+import com.fanhehe.user.business.user.pojo.respository.CommonRepository;
 import com.fanhehe.user.common.user.IUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -14,7 +15,7 @@ import java.util.Date;
  * @version 0.0.1
  * @date 2020/12/8 14:55
  */
-public interface WaveUserRecordRepository extends JpaRepository<ElectricWaveUserRecord, Long>, JpaSpecificationExecutor<ElectricWaveUserRecord> {
+public interface WaveUserRecordRepository extends CommonRepository<ElectricWaveUserRecord> {
 
     /**
      * 获取用户最新的一条电波
