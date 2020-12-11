@@ -34,7 +34,7 @@ public class UserController {
     @Transactional(rollbackFor = Exception.class)
     public UserBinding index() {
 
-        Long userId = 10001L;
+        Long userId = 10003L;
         String bindingType = BindingType.QQ.getType();
         UserBinding binding = new UserBinding();
 
@@ -48,7 +48,7 @@ public class UserController {
 
         User b = users.orElse(userRepository.findFirstByUserNickEquals("3213213213").orElse(null));
 
-        Optional<UserBinding> userBinding = userInfoRepository.findFirstByUserIdAndBindingType(10001L, bindingType);
+        Optional<UserBinding> userBinding = userInfoRepository.findFirstByUserIdAndBindingType(userId, bindingType);
 
         if (!userBinding.isPresent()) {
             binding.setUserId(userId);

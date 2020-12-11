@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
  * @author fanhehe
  */
 @NoRepositoryBean
-public interface CommonRepository<T>extends JpaRepository<T, Long>, JpaSpecificationExecutor<T> {
+public interface CommonRepository <T>extends BaseRepository<T, Long> {
 }
