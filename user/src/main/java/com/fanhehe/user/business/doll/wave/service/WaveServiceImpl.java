@@ -26,7 +26,11 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -288,4 +292,16 @@ public class WaveServiceImpl implements WaveService {
         return result;
     }
 
+    @Override
+    @Async
+    public void print() {
+        logger.info("aaaaaaaaaaaaaa");
+    }
+
+    @Override
+    @Scheduled(cron = "0/5 * * * * ?")
+    public void prints() {
+        ((WaveService)AopContext.currentProxy()).print();
+        logger.info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+    }
 }

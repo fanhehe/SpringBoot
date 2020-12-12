@@ -7,7 +7,6 @@ import com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DataSourcePrope
 import com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties;
 import org.apache.shardingsphere.shardingjdbc.jdbc.adapter.AbstractDataSourceAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,6 +31,10 @@ public class DynamicDataSourceConfig {
     @Autowired
     private AbstractDataSourceAdapter shardingDataSource;
 
+    /**
+     * 动态数据源提供者
+     * @return 动态数据源提供者
+     */
     @Bean
     public DynamicDataSourceProvider dynamicDataSourceProvider() {
         Map<String, DataSourceProperty> datasourceMap = properties.getDatasource();
@@ -52,7 +55,6 @@ public class DynamicDataSourceConfig {
      *
      * @return 结果
      */
-
     @Primary
     @Bean("dynamicDataSource")
     public DataSource dataSource(DynamicDataSourceProvider dynamicDataSourceProvider) {

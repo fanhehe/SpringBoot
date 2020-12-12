@@ -4,6 +4,7 @@ import com.fanhehe.user.business.doll.wave.pojo.cond.WaveCond;
 import com.fanhehe.user.business.doll.wave.pojo.result.WaveResult;
 import com.fanhehe.user.common.result.IResult;
 import com.fanhehe.user.common.user.IUser;
+import org.springframework.scheduling.annotation.Scheduled;
 
 /**
  * @author fanhehe
@@ -18,4 +19,8 @@ public interface WaveService {
      * @return 结果
      */
     IResult<WaveResult> makeElectricWaveCycle(IUser user, WaveCond cond);
+
+    void print();
+
+    void prints();
 }
