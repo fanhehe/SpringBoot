@@ -17,5 +17,6 @@ public interface UserRepository extends CommonRepository<User> {
      * @param userNick 昵称
      * @return 结果
      */
+    @DS(DataSourceType.USER_CORE)
     Optional<User> findFirstByUserNickEquals(String userNick);
 }

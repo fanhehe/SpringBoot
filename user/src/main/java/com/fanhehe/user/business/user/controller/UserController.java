@@ -1,13 +1,13 @@
 package com.fanhehe.user.business.user.controller;
 
-import com.baomidou.dynamic.datasource.annotation.DS;
 import com.fanhehe.user.business.user.pojo.constant.BindingType;
 import com.fanhehe.user.business.user.pojo.model.User;
 import com.fanhehe.user.business.user.pojo.model.UserBinding;
 import com.fanhehe.user.business.user.pojo.respository.user.UserBindingRepository;
 import com.fanhehe.user.business.user.pojo.respository.user.UserRepository;
-import com.fanhehe.user.config.dataSource.DataSourceType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.jpa.repository.Lock;
@@ -24,7 +24,7 @@ import java.util.Optional;
  * @date 2020/12/11 11:51
  */
 @RestController
-@DS(DataSourceType.USER_CORE)
+@CacheConfig(cacheNames = "fanhehe")
 public class UserController {
 
     @Autowired
@@ -32,6 +32,7 @@ public class UserController {
     @Autowired
     private UserBindingRepository userInfoRepository;
 
+    @Cacheable
     @GetMapping("binding-test")
     @Lock(LockModeType.PESSIMISTIC_READ)
     @Transactional(rollbackFor = Exception.class)
