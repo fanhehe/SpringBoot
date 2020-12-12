@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Nullable;
 import javax.persistence.LockModeType;
 import java.util.Optional;
 
@@ -32,7 +33,7 @@ public class UserController {
     @Autowired
     private UserBindingRepository userInfoRepository;
 
-    @Cacheable
+    @Cacheable(key = "2333")
     @GetMapping("binding-test")
     @Lock(LockModeType.PESSIMISTIC_READ)
     @Transactional(rollbackFor = Exception.class)
