@@ -110,10 +110,10 @@ public class WaveServiceImpl implements WaveService {
             return Result.failure(WaveResultEnum.EMPTY, result);
         }
 
-        int random = (int)(Math.random() * 100);
+        int random = (int) (Math.random() * 100);
 
         if (canMakeWaveSpecial > 0) {
-            random = (int)(Math.random() *Math.max(0, 100 - canMakeWaveSpecial));
+            random = (int) (Math.random() * Math.max(0, 100 - canMakeWaveSpecial));
             logger.info("本次因canMakeWaveSpecial新生成的概率为{}", random);
         }
 
@@ -159,7 +159,7 @@ public class WaveServiceImpl implements WaveService {
 
         long now = System.currentTimeMillis() - today;
 
-        for (Long item: WaveConfig.WAVE_SPECIAL_TIME) {
+        for (Long item : WaveConfig.WAVE_SPECIAL_TIME) {
 
             // 现在时间减去分段时间
             long diff = now - item;
@@ -197,7 +197,7 @@ public class WaveServiceImpl implements WaveService {
             sum += config.getWeight();
         }
 
-        int random = (int)(Math.random() * sum);
+        int random = (int) (Math.random() * sum);
 
         logger.info("getRandomOneFromWaveConfig: random={}", random);
 
@@ -212,7 +212,7 @@ public class WaveServiceImpl implements WaveService {
 
         logger.info("getRandomOneFromWaveConfig: 随机一个 random={}", random);
 
-        return configList.get((int)(Math.random() * configList.size()));
+        return configList.get((int) (Math.random() * configList.size()));
     }
 
     @SneakyThrows
@@ -295,13 +295,13 @@ public class WaveServiceImpl implements WaveService {
     @Override
     @Async
     public void print() {
-        logger.info("aaaaaaaaaaaaaa");
+//        logger.info("aaaaaaaaaaaaaa");
     }
 
     @Override
     @Scheduled(cron = "0/5 * * * * ?")
     public void prints() {
-        ((WaveService)AopContext.currentProxy()).print();
+        ((WaveService) AopContext.currentProxy()).print();
         logger.info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
     }
 }

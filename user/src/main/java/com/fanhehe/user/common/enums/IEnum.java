@@ -24,6 +24,7 @@ public interface IEnum extends IType {
 
     /**
      * 枚举存在name方法
+     *
      * @return 枚举存在name方法
      */
     default String name() {
@@ -32,6 +33,7 @@ public interface IEnum extends IType {
 
     /**
      * 获取类型
+     *
      * @return 获取类型
      */
     @Override
@@ -41,6 +43,7 @@ public interface IEnum extends IType {
 
     /**
      * 获取备注
+     *
      * @return 获取备注
      */
     default String getDescription() {
@@ -49,6 +52,7 @@ public interface IEnum extends IType {
 
     /**
      * 获取所有取值
+     *
      * @return 取值
      */
     static <T extends IEnum> T[] values() {
@@ -57,6 +61,7 @@ public interface IEnum extends IType {
 
     /**
      * 获取枚举类型
+     *
      * @param type 类型
      * @return 结果
      */
@@ -66,6 +71,7 @@ public interface IEnum extends IType {
 
     /**
      * 获取枚举类型
+     *
      * @param type 类型
      * @return 结果
      */
@@ -76,7 +82,7 @@ public interface IEnum extends IType {
 
         assert values() != null;
 
-        for (IEnum item: values()) {
+        for (IEnum item : values()) {
             if (type.getType().equals(item.getType())) {
                 return item;
             }

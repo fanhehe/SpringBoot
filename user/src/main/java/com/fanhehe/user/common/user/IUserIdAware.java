@@ -8,6 +8,7 @@ package com.fanhehe.user.common.user;
 public interface IUserIdAware {
     /**
      * 设置用户Id
+     *
      * @param userId 用户Id
      */
     void setUserId(Long userId);

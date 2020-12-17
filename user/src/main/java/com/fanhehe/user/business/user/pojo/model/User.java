@@ -1,7 +1,11 @@
 package com.fanhehe.user.business.user.pojo.model;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -14,6 +18,11 @@ public class User implements Serializable {
     private String userAvatar;
     private long createAt;
     private long updateAt;
+
+    //    @JsonIgnoreProperties
+//    @JSONField(serialize = false)
+    @OneToMany(mappedBy = "user_id", cascade = CascadeType.ALL)
+    private List<UserBinding> bindingList;
 
     @Id
     @Column(name = "user_id", nullable = false)

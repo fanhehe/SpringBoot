@@ -10,18 +10,17 @@ JAVA_OPTS='-Xms128m -Xmx512m -XX:NewSize=128m -XX:MaxNewSize=512m -XX:MetaspaceS
 MAX_TIMEOUT=30
 
 # 修改进程的工作路径为项目路径
-if [ -L $0 ]
-then
-    _RELATIVE_PATH=`dirname $(readlink $0)`
+if [ -L $0 ]; then
+    _RELATIVE_PATH=$(dirname $(readlink $0))
 else
-    _RELATIVE_PATH=`dirname $0`
+    _RELATIVE_PATH=$(dirname $0)
 fi
 
 cd $_RELATIVE_PATH
 
 # 获取当前项目的pid
-get_project_pid () {
-    eval "$1=`ps aux | grep $PROJECT_NAME | grep -v grep | grep -v kill | awk '{print $2}'`"
+get_project_pid() {
+    eval "$1=$(ps aux | grep $PROJECT_NAME | grep -v grep | grep -v kill | awk '{print $2}')"
 }
 
 # 进程PID
@@ -35,8 +34,7 @@ if [ ${PID} ]; then
 fi
 
 # 关闭程序,带重试30次的
-for((i=0; i<$MAX_TIMEOUT; i++))
-do
+for ((i = 0; i < $MAX_TIMEOUT; i++)); do
     sleep 1
     get_project_pid PID
     if [ ${PID} ]; then

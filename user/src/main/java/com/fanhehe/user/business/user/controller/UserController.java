@@ -49,7 +49,7 @@ public class UserController {
                 .withIgnorePaths("version")
                 .withMatcher("id", mater -> mater.caseSensitive().regex().ignoreCase().exact());
 
-        Optional<User> users = userRepository.findOne(Example.of(user,matcher));
+        Optional<User> users = userRepository.findOne(Example.of(user, matcher));
 
         User b = users.orElse(userRepository.findFirstByUserNickEquals("3213213213").orElse(null));
 
@@ -68,5 +68,9 @@ public class UserController {
         }
 
         return userBinding.orElse(binding);
+    }
+
+    public void insertUserAndBinding() {
+
     }
 }

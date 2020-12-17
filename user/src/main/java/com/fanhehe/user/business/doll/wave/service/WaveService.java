@@ -14,6 +14,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 public interface WaveService {
     /**
      * 周期生成电波
+     *
      * @param user 用户信息
      * @param cond 参数信息
      * @return 结果

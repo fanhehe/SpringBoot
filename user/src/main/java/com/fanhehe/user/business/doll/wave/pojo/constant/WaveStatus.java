@@ -25,7 +25,7 @@ public enum WaveStatus implements IEnum {
     /**
      * 已完成电波任务
      */
-    FINISH_PRIZE( "已领取电波奖励"),
+    FINISH_PRIZE("已领取电波奖励"),
 
     ;
 

@@ -8,6 +8,7 @@ package com.fanhehe.user.common.user;
 public interface IUserToken {
     /**
      * 获取用户Token
+     *
      * @return 用户Token
      */
     String getUserToken();

@@ -8,6 +8,7 @@ package com.fanhehe.user.common.user;
 public interface IUserId {
     /**
      * 获取用户Id
+     *
      * @return 结果
      */
     Long getUserId();

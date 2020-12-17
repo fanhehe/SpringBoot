@@ -40,6 +40,7 @@ public abstract class AbstractResult<T> implements IResult<T> {
 
     /**
      * 如果非success则失败
+     *
      * @return 是否失败
      */
     public boolean isFailure() {
@@ -48,9 +49,10 @@ public abstract class AbstractResult<T> implements IResult<T> {
 
     /**
      * 生成一个IResult
+     *
      * @param resultEnum 信息
-     * @param data 负载数据
-     * @param <T> 返回数据类型
+     * @param data       负载数据
+     * @param <T>        返回数据类型
      * @return 结果
      */
     protected static <T> IResult<T> makeResult(IResultEnum resultEnum, T data) {

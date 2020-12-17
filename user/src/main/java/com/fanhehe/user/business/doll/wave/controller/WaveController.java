@@ -41,6 +41,7 @@ public class WaveController {
 
     /**
      * 周期成成电波接口
+     *
      * @return 周期成成电波接口
      */
     @RequestMapping("makeElectricWaveCycle")

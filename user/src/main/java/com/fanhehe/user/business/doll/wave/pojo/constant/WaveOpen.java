@@ -49,7 +49,7 @@ public enum WaveOpen implements IEnum {
             return NONE;
         }
 
-        for (WaveOpen item: WaveOpen.values()) {
+        for (WaveOpen item : WaveOpen.values()) {
             if (StringUtils.equals(item.getType(), type)) {
                 return item;
             }

@@ -38,8 +38,9 @@ public final class Result<T> extends AbstractResult<T> {
 
     /**
      * 失败，仅返回原因
+     *
      * @param resultEnum 结果
-     * @param <T> 模板T
+     * @param <T>        模板T
      * @return 结果
      */
     public static <T> IResult<T> failure(IResultEnum resultEnum) {
@@ -48,9 +49,10 @@ public final class Result<T> extends AbstractResult<T> {
 
     /**
      * 失败，返回原因 + 数据
+     *
      * @param resultEnum 结果
-     * @param data 数据
-     * @param <T> 模板T
+     * @param data       数据
+     * @param <T>        模板T
      * @return 结果
      */
     public static <T> IResult<T> failure(IResultEnum resultEnum, T data) {

@@ -19,6 +19,7 @@ public interface WaveUserRecordRepository extends CommonRepository<ElectricWaveU
 
     /**
      * 获取用户最新的一条电波
+     *
      * @param user 用户
      * @return 获取用户最新的一条电波
      */
@@ -27,7 +28,8 @@ public interface WaveUserRecordRepository extends CommonRepository<ElectricWaveU
 
     /**
      * 获取用户今天电波的总次数
-     * @param user 用户
+     *
+     * @param user    用户
      * @param gmtDate gmtDate
      * @return 结果
      */

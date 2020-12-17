@@ -72,15 +72,15 @@ public class UserCreateController {
     @GetMapping("/user/query-nick")
     @ResponseBody
     public User queryUser(@NotBlank String userNick) {
-        
+
         User user = new User();
 
         ExampleMatcher matcher = ExampleMatcher.matchingAll()
                 .withIgnorePaths("version")
                 .withMatcher("id", mater -> mater.caseSensitive().regex().ignoreCase().exact());
-        
-        Optional<User> users = userRepository.findOne(Example.of(user,matcher));
-        
+
+        Optional<User> users = userRepository.findOne(Example.of(user, matcher));
+
         return users.orElse(userRepository.findFirstByUserNickEquals(userNick).orElse(null));
     }
 }

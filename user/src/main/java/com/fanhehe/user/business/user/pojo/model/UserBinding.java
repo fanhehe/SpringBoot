@@ -1,5 +1,8 @@
 package com.fanhehe.user.business.user.pojo.model;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -20,6 +23,12 @@ public class UserBinding implements Serializable {
     private String bindingUserUnionId;
     private Long createAt;
     private Long updateAt;
+
+    @ManyToOne
+//    @JSONField(serialize = false)
+//    @JsonIgnoreProperties
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private User user;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -135,5 +144,13 @@ public class UserBinding implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(id, userId, bindingType, bindingUserName, bindingUserAvatar, bindingUserOpenId, bindingUserUnionId, createAt, updateAt);
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

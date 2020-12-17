@@ -17,7 +17,8 @@ import com.fanhehe.user.business.user.pojo.respository.CommonRepository;
 public interface UserBindingRepository extends CommonRepository<UserBinding> {
     /**
      * 根据用户ID查询指定绑定关系
-     * @param userId 用户
+     *
+     * @param userId      用户
      * @param bindingType 绑定类型
      * @return 结果
      */

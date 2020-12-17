@@ -10,6 +10,7 @@ import com.fanhehe.user.common.enums.IEnum;
 public interface IResultEnum extends IEnum {
     /**
      * 获取code
+     *
      * @return code
      */
     default int getCode() {
@@ -18,6 +19,7 @@ public interface IResultEnum extends IEnum {
 
     /**
      * 获取message
+     *
      * @return message
      */
     default String getMessage() {

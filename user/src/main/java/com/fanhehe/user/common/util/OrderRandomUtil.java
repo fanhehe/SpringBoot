@@ -10,10 +10,11 @@ import java.util.Date;
 public final class OrderRandomUtil {
     private static int SEQUENCE = 0;
     private static long LAST_TIMESTAMP = timeGen();
-    private static final int SEQUENCE_MASK = ((int)Math.pow(2, 13) - 1);
+    private static final int SEQUENCE_MASK = ((int) Math.pow(2, 13) - 1);
 
     /**
      * 获取系统时间戳
+     *
      * @return 结果
      */
     private static long timeGen() {
@@ -22,6 +23,7 @@ public final class OrderRandomUtil {
 
     /**
      * 获取系统时间戳
+     *
      * @return 结果
      */
     private static long timeGen(Date date) {
@@ -30,18 +32,20 @@ public final class OrderRandomUtil {
 
     /**
      * 获取系统时间戳
+     *
      * @return 结果
      */
-    private static long timeGen(long timestamp){
+    private static long timeGen(long timestamp) {
         return timestamp / 1000L;
     }
 
     /**
      * 停止直到下一个时间戳
+     *
      * @param lastTimestamp 上一个时间戳
      * @return 结果
      */
-    private static long  tilNextMillis(long lastTimestamp) {
+    private static long tilNextMillis(long lastTimestamp) {
         long timestamp = timeGen();
         while (timestamp <= lastTimestamp) {
             timestamp = timeGen();

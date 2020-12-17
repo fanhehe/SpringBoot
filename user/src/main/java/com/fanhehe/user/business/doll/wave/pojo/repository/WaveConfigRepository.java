@@ -23,6 +23,7 @@ import javax.annotation.sql.DataSourceDefinition;
 public interface WaveConfigRepository extends CommonRepository<ElectricWaveConfig> {
     /**
      * 获取符合用户条件的电波配置表
+     *
      * @param user 用户信息
      * @return 结果
      */
@@ -31,6 +32,7 @@ public interface WaveConfigRepository extends CommonRepository<ElectricWaveConfi
 
     /**
      * 根据waveCodeList获取所有的配置
+     *
      * @param waveCodeList 配置列表
      * @return 结果
      */
@@ -38,6 +40,7 @@ public interface WaveConfigRepository extends CommonRepository<ElectricWaveConfi
 
     /**
      * 增加电波每天已开出次数
+     *
      * @param config 配置
      */
     @Modifying(clearAutomatically = true)

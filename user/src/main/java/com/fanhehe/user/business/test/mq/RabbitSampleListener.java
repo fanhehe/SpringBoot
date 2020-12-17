@@ -1,6 +1,7 @@
 package com.fanhehe.user.business.test.mq;
 
 import java.util.Arrays;
+
 import org.slf4j.Logger;
 import lombok.SneakyThrows;
 import org.slf4j.LoggerFactory;
@@ -27,7 +28,6 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 
 
 /**
@@ -109,6 +109,7 @@ public class RabbitSampleListener {
 
     /**
      * 支持自动声明绑定，声明之后自动监听队列的队列，此时@RabbitListener注解的queue和bindings不能同时指定，否则报错
+     *
      * @param message 消息体
      */
     @RabbitListener(
@@ -124,7 +125,7 @@ public class RabbitSampleListener {
             containerFactory = "rabbitListenerContainerFactory"
     )
     @SneakyThrows
-    public void handleMessage(Message message, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG)long deliveryTag, @Payload String payload) {
+    public void handleMessage(Message message, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long deliveryTag, @Payload String payload) {
         try {
             System.out.println("====消费消息" + message.getMessageProperties().getConsumerQueue() + "===");
             System.out.println(message.getMessageProperties());

@@ -30,7 +30,8 @@ public class LoggerAop {
             "@annotation(org.springframework.web.bind.annotation.RequestMapping)" +
             " || @annotation(org.springframework.web.bind.annotation.GetMapping)" +
             " || @annotation(org.springframework.web.bind.annotation.PostMapping))")
-    public void handleController() {}
+    public void handleController() {
+    }
 
     @Around("handleController()")
     public Object handleMakeLogger(ProceedingJoinPoint pjp) throws Throwable {
@@ -44,7 +45,7 @@ public class LoggerAop {
         Object result = pjp.proceed();
 
         if (result instanceof IResult) {
-            if (!((IResult)result).isSuccess()) {
+            if (!((IResult) result).isSuccess()) {
                 logger.info("请求结果 => {}", JSON.toJSONString(result));
             }
         }

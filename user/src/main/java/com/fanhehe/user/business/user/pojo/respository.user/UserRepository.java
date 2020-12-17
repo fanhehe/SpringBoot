@@ -14,6 +14,7 @@ import com.fanhehe.user.config.dataSource.DataSourceType;
 public interface UserRepository extends CommonRepository<User> {
     /**
      * 根据昵称获取用户
+     *
      * @param userNick 昵称
      * @return 结果
      */
